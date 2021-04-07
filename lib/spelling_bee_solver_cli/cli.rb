@@ -5,6 +5,7 @@ class CLI
 
     def start
         puts "Welcome to the Spelling Bee Solver. What is your name?"
+        API.get_data
         input = user_input
         greet(input)
     end
