@@ -2,3 +2,9 @@
 
 require_relative '../lib/environment.rb'
 
+#cli = CLI.new
+#cli.start
+# here I'm calling it in teh run file so I can run it.
+
+CLI.new.start
+
