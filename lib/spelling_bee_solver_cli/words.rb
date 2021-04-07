@@ -1,7 +1,7 @@
 class Words
 
     #(unsure if I want id or stems here to get the actual word)
-    attr_accessor :id, :stems, :shortdef
+    attr_accessor :id, :stems, :shortdef, :name
     
     @@all = []
 

@@ -58,22 +58,21 @@ class CLI
     def print_words
         words = ["word1", "word2", "word3"]
         words.each.with_index(1) do |word, index|
-            puts "#{index}. #{starship}"
+            puts "#{index}. #{word}"
         end
         select_word
     end    
 
     def select_word
-        puts "please enter the word you would like to learn the definition of."
+        puts "please enter a word for which you would like to learn the definition."
         selection = user_input    
-        puts "word def"
+        word_definition(selection)
     end
 
-    def word_definition
+    def word_definition(word)
+        puts "word definition" # Once I have API etc. this will be the actual definition so I'll interpolate with #{word def}
+        menu
+    
     end
-
-    #change made
-
-
 
 end
