@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
+require 'dotenv/load'
+
 require_relative '../lib/environment.rb'
 
 #cli = CLI.new
 #cli.start
 # here I'm calling it in teh run file so I can run it.
+
+puts ENV["X_RAPIDAPI_HOST"]
 
 CLI.new.start
 
