@@ -23,11 +23,7 @@ class API
     end
 
     def letter_pattern_from_API
-        
-
-        # json = self.get_data(url)
-
-        # convert_json_to_ruby(json)
+    
     end
 
 

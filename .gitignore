@@ -1,4 +1,4 @@
-.env
+
 /.bundle/
 /.yardoc
 /_yardoc/
@@ -7,3 +7,4 @@
 /pkg/
 /spec/reports/
 /tmp/
+.env
