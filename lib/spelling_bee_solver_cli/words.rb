@@ -1,17 +1,16 @@
 class Words
 
-    #(unsure if I want id or stems here to get the actual word)
-    attr_accessor 
+    attr_accessor :word, :word_text, :definition 
     
     @@all = []
 
     # (mass assignment pass in as a giant hash)
 
-    def initialize(words_hash)
-        words_hash.each do |key, value|
+    def initialize(word_hash)
+        word_hash.each do |key, value|
             self.send("#{key}=", value) if self.respond_to?("#{key}=")
-            save
         end
+        save
     end
 
 
@@ -23,9 +22,9 @@ class Words
         @@all
     end
 
-    # def self.find_by_selection(words_name)
+    # def self.find_by_selection(word_text)
     #     self.all.find do |word|
-    #         words.name == starship_name
+    #         word.text == word_text
     #     end
     # end
 end 

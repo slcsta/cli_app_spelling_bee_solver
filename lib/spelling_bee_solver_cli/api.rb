@@ -1,9 +1,9 @@
 class API
     
-    def self.get_data
+    def self.get_data(center_letter, all_letters)
 
-        #response = RestClient.get("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*e)(^[eginpux]{4,}$)")
-        url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*w)(^[wordily]{4,}$)")
+        #response = RestClient.get("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*w)(^[wordily]{4,}$)")
+        url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*#{center_letter})(^[#{all_letters}]{4,}$)")
 
 
         http = Net::HTTP.new(url.host, url.port)
@@ -22,19 +22,20 @@ class API
         end
     end
 
-    def letter_pattern_from_API
-    
+    # def get_words_list(center_letter, all_letters)
+    #     url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*#{center_letter})(^[#{all_letters}]{4,}$)")
+    #     words_array = JSON.parse(response.read_body)
+    #     words_array.each do |word|
+    #         Words.new(word)
+    #     end
+    # end
+
+    def get_definition(word)
+        url = URI("https://wordsapiv1.p.rapidapi.com/words/#{word}/")
+        words_detail_array = JSON.parse(response.read_body)
+        words_detail_array.each do |word|
+            Word.new(word)
+       end
     end
-
-
-        
-        #request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
-        #request["x-rapid-key"] = ENV['WORDS_API_KEY']
-        #response = RestClient.get "https://wordsapiv1.p.key.com/words/?letterPattern=(?=.*e)(^[eginpux]{4,}$)" 
-        
-        
-        # words_array = JSON.parse(response)[""]
-        # words_array.each do |word|
-        #    Words.new(words)
 
 end
