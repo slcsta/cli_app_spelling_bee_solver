@@ -1,7 +1,7 @@
 class CLI 
 
     def start
-        puts "Welcome to the Spelling Bee Solver. What is your name?"
+        puts "\nWelcome to Spelling Bee Solver! What is your name?"
         input = user_input
         greet(input)
     end
@@ -11,20 +11,21 @@ class CLI
     end
 
     def greet(name)
-        puts "Greetings, #{name}. Let's begin! Would you like to solve today's Spelling Bee puzzle? If yes, enter 'y' to solve the puzzle, if no, enter 'exit'."
+        puts "\nGreetings, #{name}. Let's begin! Would you like to solve today's puzzle? \nEnter 'y' for yes or 'exit' for no."
         menu
     end
 
     def menu
         selection = user_input
         if selection == "y"
-            puts "Terrific, please go to the New York Times Spelling Bee at https://www.nytimes.com/puzzles/spelling-bee and enter all of the day's letters."
-            all_letters = user_input
-            puts "Great, now please enter just the center letter"
-            center_letter = user_input
+            puts "\nTerrific! Let's go to the New York Times Spelling Bee and retrieve today's letters. \nPlease enter all seven letters here:"
+            all_letters = user_input.downcase
+            puts "\nGreat, now please enter just the center letter:"
+            center_letter = user_input.downcase
+            puts "\nPlease note that our list includes obscure words that Spelling Bee may not accept."
+            puts "\n🐝 Here are today's solutions 🐝 "
             API.get_data(center_letter, all_letters)
-            print_words #prints word list of solutions
-            menu     # calling method within intself is recursion. Will return to the beginning and wait for us to enter info again.
+            print_words
         elsif selection == "exit"
             goodbye
         else
@@ -33,11 +34,11 @@ class CLI
     end
     
     def goodbye
-        puts "Thank you for playing. Come back soon!"
+        puts "\nThank you for playing. Come back soon!"
     end
     
     def invalid
-        puts "Invalid entry. Please try again."
+        puts "\nInvalid entry. Please try again."
         menu
     end
     
@@ -49,7 +50,7 @@ class CLI
     end    
 
     def select_word
-        puts "Plese enter a word from the list to search for its definition."
+        puts "\nEnter a word from the list if you'd like to look up it's definition, otherwise enter 'exit' to leave the application."
         word = user_input
         API.get_definition(word)
         print_definitions

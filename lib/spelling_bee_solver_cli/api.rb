@@ -15,7 +15,7 @@ class API
         request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
 
         response = http.request(request)
-        puts response.read_body
+        
         words_array = JSON.parse(response.read_body)["results"]["data"]
         words_array.each do |word|
             Words.new(word)
@@ -34,11 +34,10 @@ class API
         request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
 
         response = http.request(request)
-        puts response.read_body
-        words_detail = JSON.parse(response.read_body)["definitions"]
-        binding.pry
-        words_detail.each do |definition|
-            Words.new(definition)
+    
+        words_detail_array = JSON.parse(response.read_body)["definitions"]
+        words_detail_array.each do |definition|
+            Definitions.new(definition)
        end
     end
 

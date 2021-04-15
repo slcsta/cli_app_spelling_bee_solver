@@ -1,13 +1,14 @@
-class Words
+class Definitions
 
-    attr_accessor :word, :definition
+    attr_accessor :definition, :parts_of_speech
     
     @@all = []
 
     def initialize(word)
         @word = word
         @definition = definition
-           
+            #mass assignment? How to reconcile initialize method.
+            #self.send("#{key}=", value) if self.respond_to?("#{key}=")
         save
     end
 
