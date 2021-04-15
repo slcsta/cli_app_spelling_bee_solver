@@ -4,11 +4,10 @@ class Definitions
     
     @@all = []
 
-    def initialize(word)
-        @word = word
-        @definition = definition
-            #mass assignment? How to reconcile initialize method.
-            #self.send("#{key}=", value) if self.respond_to?("#{key}=")
+    def initialize(definitions_hash)
+        definitions_hash.each do |key, value|
+            self.send("#{key}=", value) if self.respond_to?("#{key}=")
+        end
         save
     end
 

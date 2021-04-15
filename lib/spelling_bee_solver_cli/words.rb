@@ -7,7 +7,6 @@ class Words
     def initialize(word)
         @word = word
         @definition = definition
-           
         save
     end
 

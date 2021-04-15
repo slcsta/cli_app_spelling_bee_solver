@@ -18,11 +18,11 @@ class CLI
     def menu
         selection = user_input
         if selection == "y"
-            puts "\nTerrific! Let's go to the New York Times Spelling Bee and retrieve today's letters. \nPlease enter all seven letters here:"
+            puts "\nTerrific! Let's go to the New York Times Spelling Bee and retrieve today's letters. \nPlease enter all seven letters."
             all_letters = user_input.downcase
-            puts "\nGreat, now please enter just the center letter:"
+            puts "\nGreat, now please enter just the center letter."
             center_letter = user_input.downcase
-            puts "\nPlease note that our list includes obscure words that Spelling Bee may not accept."
+            puts "\nNote that our list includes obscure words that Spelling Bee may not recognize."
             puts "\n🐝 Here are today's solutions 🐝 "
             API.get_data(center_letter, all_letters)
             print_words
@@ -50,7 +50,7 @@ class CLI
     end    
 
     def select_word
-        puts "\nEnter a word from the list if you'd like to look up it's definition, otherwise enter 'exit' to leave the application."
+        puts "\nEnter a word from the list to look up its definition. Enter 'exit' to quit."
         word = user_input
         API.get_definition(word)
         print_definitions
