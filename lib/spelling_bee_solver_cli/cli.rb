@@ -24,7 +24,6 @@ class CLI
             center_letter = user_input
             API.get_data(center_letter, all_letters)
             print_words #prints word list of solutions
-            binding.pry
             menu     # calling method within intself is recursion. Will return to the beginning and wait for us to enter info again.
         elsif selection == "exit"
             goodbye
@@ -44,9 +43,9 @@ class CLI
     
     def print_words
         Words.all.each.with_index(1) do |word, index|
-            puts "#{index}. #{word}"
+            puts "#{index}. #{word.word}"
         end
-        #select_word
+        select_word
     end    
 
     def select_word

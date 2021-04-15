@@ -1,15 +1,12 @@
 class Words
 
-    attr_accessor :word, :word_text, :definition 
+    attr_accessor :word #:definition
     
     @@all = []
 
-    # (mass assignment pass in as a giant hash)
-
-    def initialize(word_hash)
-        word_hash.each do |key, value|
-            self.send("#{key}=", value) if self.respond_to?("#{key}=")
-        end
+    def initialize(word)
+        @word = word
+            #self.send("#{key}=", value) if self.respond_to?("#{key}=")
         save
     end
 

@@ -16,7 +16,7 @@ class API
 
         response = http.request(request)
         puts response.read_body
-        words_array = JSON.parse(response.read_body)
+        words_array = JSON.parse(response.read_body)["results"]["data"]
         words_array.each do |word|
             Words.new(word)
         end
