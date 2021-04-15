@@ -1,6 +1,6 @@
 class Words
 
-    attr_accessor :word #:definition
+    attr_accessor :word, :definition
     
     @@all = []
 

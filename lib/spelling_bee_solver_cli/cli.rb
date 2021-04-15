@@ -52,13 +52,15 @@ class CLI
         puts "Plese enter a word from the list to search for its definition."
         word = user_input
         API.get_definition(word)
-        print_definition
+        print_definitions
         #return to look up another word again and again or user enters exit to exit program    
         #word_definition(selection)
     end
 
-    def word_definition(word)
-        puts "#{word}"
-        menu
+    def print_definitions
+        Words.all.each.with_index(1) do |definition, index|
+            puts "#{index}. #{definition}"
+        end
+        select_word
     end
 end

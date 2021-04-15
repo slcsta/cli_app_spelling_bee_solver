@@ -4,8 +4,5 @@ require 'dotenv/load'
 
 require_relative '../lib/environment.rb'
 
-#cli = CLI.new
-#cli.start
-# calling it so I can run program.
 CLI.new.start
 

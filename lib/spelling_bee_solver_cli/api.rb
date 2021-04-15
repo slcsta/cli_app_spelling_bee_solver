@@ -22,19 +22,23 @@ class API
         end
     end
 
-    # def get_words_list(center_letter, all_letters)
-    #     url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*#{center_letter})(^[#{all_letters}]{4,}$)")
-    #     words_array = JSON.parse(response.read_body)
-    #     words_array.each do |word|
-    #         Words.new(word)
-    #     end
-    # end
+    def self.get_definition(word)
+        url = URI("https://wordsapiv1.p.rapidapi.com/words/#{word}/definitions")
 
-    def get_definition(word)
-        url = URI("https://wordsapiv1.p.rapidapi.com/words/#{word}/")
-        words_detail_array = JSON.parse(response.read_body)
-        words_detail_array.each do |word|
-            Word.new(word)
+        http = Net::HTTP.new(url.host, url.port)
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+        request = Net::HTTP::Get.new(url)
+        request["x-rapidapi-key"] = ENV['WORDSAPI_KEY']
+        request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
+
+        response = http.request(request)
+        puts response.read_body
+        words_detail = JSON.parse(response.read_body)["definitions"]
+        binding.pry
+        words_detail.each do |definition|
+            Words.new(definition)
        end
     end
 
