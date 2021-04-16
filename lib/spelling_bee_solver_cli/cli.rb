@@ -43,22 +43,35 @@ class CLI
     end
     
     def print_words
-        Words.all.each.with_index(1) do |word, index|
-            puts "#{index}. #{word.word}"
+        Words.all.each.with_index(1) do |words, index|
+            puts "#{index}. #{words.word}"
         end
         select_word
     end    
 
     def select_word
-        puts "\nEnter a word from the list to look up its definition. Enter 'exit' to quit."
+        puts "\nTo look up a definition enter a word from the. Enter 'exit' to quit."
         word = user_input
         API.get_definition(word)
-        print_definitions
+        # if Definitions.find_by_selection(selection)
+        #     #definition = Definitions.find_by_selection(selection)
+        # elsif selection == "exit"
+        #     goodbye
+        # else
+        #     invalid
+        #definitions_details(definition)
+        print_definitions(word)
+        #puts "Enter y to see more definitions or exit to exit."
     end
 
-    def print_definitions
-        Definitions.all.each.with_index(1) do |definition, index|
-            puts "#{index}. #{definition.definition}"
+    # def definitions_details(definition)
+    #     puts "Definition: #{definitions.definition}"
+    #     puts "Parts of Speech: #{definitions.partsOFspeech}"
+    # end
+    
+    def print_definitions(word)
+        Definitions.all.each.with_index(1) do |definitions, index|
+            puts "#{index}. #{word}: #{definitions.definition}"
         end
     end
 end

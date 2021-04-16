@@ -2,9 +2,7 @@ class API
     
     def self.get_data(center_letter, all_letters)
 
-        #response = RestClient.get("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*w)(^[wordily]{4,}$)")
         url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*#{center_letter})(^[#{all_letters}]{4,}$)")
-
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -15,7 +13,7 @@ class API
         request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
 
         response = http.request(request)
-        
+
         words_array = JSON.parse(response.read_body)["results"]["data"]
         words_array.each do |word|
             Words.new(word)
@@ -34,11 +32,11 @@ class API
         request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
 
         response = http.request(request)
-    
+
         words_detail_array = JSON.parse(response.read_body)["definitions"]
         words_detail_array.each do |definition|
             Definitions.new(definition)
-       end
+        end
     end
 
 end
