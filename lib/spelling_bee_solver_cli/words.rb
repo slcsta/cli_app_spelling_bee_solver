@@ -18,10 +18,4 @@ class Words
     def self.all
         @@all
     end
-
-    # def self.find_by_selection(word_text)
-    #     self.all.find do |word|
-    #         word.text == word_text
-    #     end
-    # end
 end 

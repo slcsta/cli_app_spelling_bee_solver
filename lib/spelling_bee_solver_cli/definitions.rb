@@ -11,7 +11,6 @@ class Definitions
         save
     end
 
-
     def save
         @@all << self
     end
@@ -20,9 +19,9 @@ class Definitions
         @@all
     end
 
-    # def self.find_by_selection(word_text)
-    #     self.all.find do |word|
-    #         word.text == word_text
+    # def self.find_by_selection(definition_definition
+    #     self.all.find do |definition|
+    #         definition.definition == definition_definition
     #     end
     # end
 end 

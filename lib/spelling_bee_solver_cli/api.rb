@@ -39,7 +39,6 @@ class API
         words_detail_array.each do |definition|
             Definitions.new(definition)
        end
-       binding.pry
     end
 
 end

@@ -54,14 +54,11 @@ class CLI
         word = user_input
         API.get_definition(word)
         print_definitions
-        #return to look up another word again and again or user enters exit to exit program    
-        #word_definition(selection)
     end
 
     def print_definitions
-        Words.all.each.with_index(1) do |definition, index|
-            puts "#{index}. #{definition}"
+        Definitions.all.each.with_index(1) do |definition, index|
+            puts "#{index}. #{definition.definition}"
         end
-        select_word
     end
 end
