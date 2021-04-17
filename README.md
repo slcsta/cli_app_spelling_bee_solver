@@ -1,8 +1,6 @@
 # Spelling_Bee_Solver_CLI
 
-Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/spelling_bee_solver_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. Once prompted, the CLI generates a list of solutions to the daily puzzle. From there, you can input a word from the list of solutions to look up its definition. You can retrieve multiple word definitions. 
 
 ## Installation
 
@@ -25,7 +23,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To begin, enter ruby bin/run
+
+After the welcome message, you will be asked for your name.
+
+Next, the program will ask if you'd like to retrieve solutions to the Spelling Bee puzzle. If 'yes', the program will prompt you to enter the daily puzzle's seven letters and then to enter just the center letter. If 'no', you are given the option to exit the program. 
+
+Once the letters are entered, a list of valid words is returned in alphabetical order.
+
+Following the solutions, the program will ask if you'd like to look up word definitions. If 'yes', you will be prompted to enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
 
 ## Development
 
