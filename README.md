@@ -1,6 +1,6 @@
 # Spelling_Bee_Solver_CLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/spelling_bee_solver_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/spelling_bee_solver_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -19,6 +19,9 @@ And then execute:
 Or install it yourself as:
 
     $ gem install spelling_bee_solver_cli
+
+    To run the program:
+    ruby bin/run
 
 ## Usage
 

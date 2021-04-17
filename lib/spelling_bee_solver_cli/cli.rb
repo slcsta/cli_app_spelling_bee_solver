@@ -50,24 +50,20 @@ class CLI
     end    
 
     def select_word
-        puts "\nTo look up a definition enter a word from the. Enter 'exit' to quit."
+        puts "\nTo look up a definition enter a word from the list. Enter N to quit."
         word = user_input
-        API.get_definition(word)
-        # if Definitions.find_by_selection(selection)
-        #     #definition = Definitions.find_by_selection(selection)
-        # elsif selection == "exit"
-        #     goodbye
-        # else
-        #     invalid
-        #definitions_details(definition)
-        print_definitions(word)
-        #puts "Enter y to see more definitions or exit to exit."
-    end
+        if word == "N"
+            goodbye
 
-    # def definitions_details(definition)
-    #     puts "Definition: #{definitions.definition}"
-    #     puts "Parts of Speech: #{definitions.partsOFspeech}"
-    # end
+        # elsif word ==
+        #     invalid
+        #     select_word
+        else
+            API.get_definition(word) 
+            print_definitions(word)
+            select_word
+        end
+    end
     
     def print_definitions(word)
         Definitions.all.each.with_index(1) do |definitions, index|

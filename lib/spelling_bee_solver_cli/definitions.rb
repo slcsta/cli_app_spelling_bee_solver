@@ -1,6 +1,6 @@
 class Definitions
 
-    attr_accessor :definition, :partsOFspeech
+    attr_accessor :definition
     
     @@all = []
 
@@ -18,10 +18,4 @@ class Definitions
     def self.all
         @@all
     end
-
-    # def self.find_by_selection(definitions_definition)
-    #     self.all.detect do |definitions|
-    #         definitions.definition == definitions_definition
-    #     end
-    # end
 end 
