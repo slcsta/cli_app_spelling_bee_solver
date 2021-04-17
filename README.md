@@ -23,15 +23,20 @@ Or install it yourself as:
 
 ## Usage
 
-To begin, enter ruby bin/run
 
-After the welcome message, you will be asked to enter your name.
+Spelling Bee Solver CLI employs the dotenv gem to protect API authorization keys. To run the CLI, you'll need to provide your own API key.
 
-Next, the program will check to see if you'd like to retrieve solutions to the Spelling Bee puzzle. If yes or 'y', the program will prompt you to enter the daily puzzle's seven letters and then to enter just the center letter. If no or 'e', you are given the option to exit the program--The daily Spelling Bee puzzle letters can be accessed at https://www.nytimes.com/puzzles/spelling-bee.
+Get your personal API key by logging into WORDS API(the API source for this program). Replace ENV['WORDS_API_KEY'] in the API call with your own key from Words API.
+
+To start the program, enter 'ruby bin/run'
+
+Follow the command line prompts for instructions on what to do next.
+
+The program will ask if you'd like to retrieve solutions to the Spelling Bee puzzle. If yes, you will be prompted to enter the daily puzzle's seven letters and then to enter the center letter. If not, you are given the option to exit the program--The daily Spelling Bee puzzle letters can be accessed at https://www.nytimes.com/puzzles/spelling-bee.
 
 Once the letters are entered, a list of valid words is returned in alphabetical order.
 
-Following the generated list of solutions, the program will ask if you'd like to look up word definitions. You will be prompted to enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
+Following the generated list of solutions, the program will ask if you'd like to look up word definitions. You can enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
 
 ## Development
 
