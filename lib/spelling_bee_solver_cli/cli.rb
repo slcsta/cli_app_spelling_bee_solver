@@ -19,7 +19,7 @@ class CLI
         selection = user_input
         if selection == "Y"
             puts "\nTerrific! Let's go to the New York Times Spelling Bee: https://www.nytimes.com/puzzles/spelling-bee and retrieve today's letters. 
-            Please enter all seven letters."
+            \nEnter all seven letters."
             all_letters = user_input.downcase
             puts "\nGreat, now please enter just the center letter."
             center_letter = user_input.downcase
@@ -56,7 +56,7 @@ class CLI
     end   
     
     def select_word
-        puts "\nTo look up a definition enter a word from the list. Enter 'e' to exit."
+        puts "\nTo look up a definition enter a word from the list. Enter 'N' to exit."
         word = user_input
         API.get_definition(word)
         if word == "N"
@@ -70,7 +70,7 @@ class CLI
             Definitions.all.clear
             select_word
         else
-            puts "no def available, please try again."
+            puts "\nNo definition available. Please try again."
             sleep(1)
             select_word
         end

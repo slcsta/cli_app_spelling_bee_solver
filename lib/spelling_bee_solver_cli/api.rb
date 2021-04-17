@@ -36,6 +36,7 @@ class API
         if words_detail_array == nil 
             words_detail_array = []
         end
+        
         words_detail_array.each do |definition|
             Definitions.new(definition)
         end
