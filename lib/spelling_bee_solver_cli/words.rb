@@ -6,6 +6,7 @@ class Words
 
     def initialize(word)
         @word = word
+        # @words_array = 
         @definition = definition
         save
     end
@@ -17,5 +18,12 @@ class Words
 
     def self.all
         @@all
+    end
+
+    def self.find_by_selection(words_word)
+        self.all.detect do |words|
+            words.word == words_word
+            binding.pry
+        end
     end
 end 

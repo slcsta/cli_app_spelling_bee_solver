@@ -1,7 +1,6 @@
 class API
     
     def self.get_data(center_letter, all_letters)
-
         url = URI("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=(?=.*#{center_letter})(^[#{all_letters}]{4,}$)")
 
         http = Net::HTTP.new(url.host, url.port)

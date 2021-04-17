@@ -1,6 +1,6 @@
 # Spelling_Bee_Solver_CLI
 
-Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. Once prompted, the CLI generates a list of solutions to the daily puzzle. From there, you can input a word from the list of solutions to look up its definition. You can retrieve multiple word definitions. 
+Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. Once prompted, the CLI generates a list of solutions to the daily puzzle. From there, you can input a word from the list of solutions to look up its definition. 
 
 ## Installation
 
@@ -25,13 +25,13 @@ Or install it yourself as:
 
 To begin, enter ruby bin/run
 
-After the welcome message, you will be asked for your name.
+After the welcome message, you will be asked to enter your name.
 
-Next, the program will ask if you'd like to retrieve solutions to the Spelling Bee puzzle. If 'yes', the program will prompt you to enter the daily puzzle's seven letters and then to enter just the center letter. If 'no', you are given the option to exit the program. 
+Next, the program will check to see if you'd like to retrieve solutions to the Spelling Bee puzzle. If yes or 'y', the program will prompt you to enter the daily puzzle's seven letters and then to enter just the center letter. If no or 'e', you are given the option to exit the program--The daily Spelling Bee puzzle letters can be accessed at https://www.nytimes.com/puzzles/spelling-bee.
 
 Once the letters are entered, a list of valid words is returned in alphabetical order.
 
-Following the solutions, the program will ask if you'd like to look up word definitions. If 'yes', you will be prompted to enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
+Following the generated list of solutions, the program will ask if you'd like to look up word definitions. You will be prompted to enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
 
 ## Development
 

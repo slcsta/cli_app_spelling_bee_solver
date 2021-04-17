@@ -11,22 +11,28 @@ class CLI
     end
 
     def greet(name)
-        puts "\nGreetings, #{name}. Let's begin! Would you like to solve today's puzzle? \nEnter 'y' for yes or 'exit' for no."
+        puts "\nGreetings, #{name}. Let's begin! Would you like to solve today's puzzle? \nEnter 'y' for yes or 'e' to exit."
         menu
     end
 
     def menu
         selection = user_input
         if selection == "y"
-            puts "\nTerrific! Let's go to the New York Times Spelling Bee and retrieve today's letters. \nPlease enter all seven letters."
+            puts "\nTerrific! Let's go to the New York Times Spelling Bee: https://www.nytimes.com/puzzles/spelling-bee and retrieve today's letters. 
+            \nPlease enter all seven letters."
             all_letters = user_input.downcase
             puts "\nGreat, now please enter just the center letter."
             center_letter = user_input.downcase
             puts "\nNote that our list includes obscure words that Spelling Bee may not recognize."
             puts "\n🐝 Here are today's solutions 🐝 "
             API.get_data(center_letter, all_letters)
+            if Words.all.length != 0
             print_words
-        elsif selection == "exit"
+            else
+                invalid
+            end
+        
+        elsif selection == "e"
             goodbye
         else
             invalid
@@ -47,20 +53,25 @@ class CLI
             puts "#{index}. #{words.word}"
         end
         select_word
-    end    
-
+    end   
+    
     def select_word
-        puts "\nTo look up a definition enter a word from the list. Enter N to quit."
+        puts "\nTo look up a definition enter a word from the list. Enter 'e' to exit."
         word = user_input
+        API.get_definition(word)
         if word == "N"
             goodbye
-
-        # elsif word ==
-        #     invalid
+        elsif word == "Y"
+            print_words
+        # elsif word == invalid
         #     select_word
-        else
-            API.get_definition(word) 
+        elsif Definitions.all.length != 0
             print_definitions(word)
+            Definitions.all.clear
+            select_word
+        else
+            puts "no def available, please try again."
+            sleep(1)
             select_word
         end
     end

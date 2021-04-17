@@ -1,6 +1,6 @@
 class Definitions
 
-    attr_accessor :definition
+    attr_accessor :definition, :words_detail_array
     
     @@all = []
 
