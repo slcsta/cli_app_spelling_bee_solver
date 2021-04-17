@@ -33,9 +33,11 @@ class API
         response = http.request(request)
 
         words_detail_array = JSON.parse(response.read_body)["definitions"]
+        if words_detail_array == nil 
+            words_detail_array = []
+        end
         words_detail_array.each do |definition|
             Definitions.new(definition)
         end
     end
-
 end

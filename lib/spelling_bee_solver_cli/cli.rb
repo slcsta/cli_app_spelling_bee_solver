@@ -11,15 +11,15 @@ class CLI
     end
 
     def greet(name)
-        puts "\nGreetings, #{name}. Let's begin! Would you like to solve today's puzzle? \nEnter 'y' for yes or 'e' to exit."
+        puts "\nGreetings, #{name}. Let's begin! Would you like to solve today's puzzle? \nEnter 'Y' for yes or 'N' to exit."
         menu
     end
 
     def menu
         selection = user_input
-        if selection == "y"
+        if selection == "Y"
             puts "\nTerrific! Let's go to the New York Times Spelling Bee: https://www.nytimes.com/puzzles/spelling-bee and retrieve today's letters. 
-            \nPlease enter all seven letters."
+            Please enter all seven letters."
             all_letters = user_input.downcase
             puts "\nGreat, now please enter just the center letter."
             center_letter = user_input.downcase
@@ -27,12 +27,12 @@ class CLI
             puts "\n🐝 Here are today's solutions 🐝 "
             API.get_data(center_letter, all_letters)
             if Words.all.length != 0
-            print_words
+                print_words
             else
                 invalid
             end
         
-        elsif selection == "e"
+        elsif selection == "N"
             goodbye
         else
             invalid
