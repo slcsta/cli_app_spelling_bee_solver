@@ -19,19 +19,27 @@ class CLI
         selection = user_input
         if selection == "Y"
             puts "\nTerrific! Let's go to the New York Times Spelling Bee: https://www.nytimes.com/puzzles/spelling-bee and retrieve today's letters. 
-            \nEnter all seven letters."
+            \nEnter all seven letters:"
             all_letters = user_input.downcase
-            puts "\nGreat, now please enter just the center letter."
-            center_letter = user_input.downcase
-            puts "\nNote that our list includes obscure words that Spelling Bee may not recognize."
-            puts "\n🐝 Here are today's solutions 🐝 "
-            API.get_data(center_letter, all_letters)
-            if Words.all.length != 0
-                print_words
-            else
-                invalid
+            if all_letters.length > 7 || all_letters.length < 7
+                invalid_letter_length
+            else  
+                puts "\nGreat, now please enter just the center letter:"
+                center_letter = user_input.downcase
+                if center_letter.length > 1 || center_letter.length < 1
+                    invalid_letter_length
+                else
+                    puts "\n*Note: Our list includes obscure words that Spelling Bee may not recognize."
+                    sleep(3)
+                    puts "🐝 Here are today's solutions 🐝 "
+                    API.get_data(center_letter, all_letters)
+                    if Words.all.length != 0
+                        print_words
+                    else
+                        invalid
+                    end
+                end
             end
-        
         elsif selection == "N"
             goodbye
         else
@@ -45,6 +53,11 @@ class CLI
     
     def invalid
         puts "\nInvalid entry. Please try again."
+        menu
+    end
+
+    def invalid_letter_length
+        puts "\nIt looks like you didn't enter the correct number of letters. Enter 'Y' to try again or 'N' to exit."
         menu
     end
     
@@ -63,8 +76,6 @@ class CLI
             goodbye
         elsif word == "Y"
             print_words
-        # elsif word == invalid
-        #     select_word
         elsif Definitions.all.length != 0
             print_definitions(word)
             Definitions.all.clear
