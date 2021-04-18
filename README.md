@@ -1,6 +1,6 @@
 # Spelling_Bee_Solver_CLI
 
-Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. Once prompted, the CLI generates a list of solutions to the daily puzzle. From there, you can input a word from the list of solutions to look up its definition. 
+Spelling Bee Solver CLI returns valid words to solve the New York Times Spelling Bee puzzle. Once prompted, the CLI generates a list of solutions to the daily puzzle. From there, you can input a word from the list of solutions to look up the word's definition. 
 
 ## Installation
 
@@ -23,20 +23,19 @@ Or install it yourself as:
 
 ## Usage
 
-
 Spelling Bee Solver CLI employs the dotenv gem to protect API authorization keys. To run the CLI, you'll need to provide your own API key.
 
-Get your personal API key by logging into WORDS API(the API source for this program). Replace ENV['WORDS_API_KEY'] in the API call with your own key from Words API.
+Get your personal API key by logging into WORDSAPI(the API source for this program: https://www.wordsapi.com/). Replace ENV['WORDS_API_KEY'] in the API call with your own key from Words API.
 
 To start the program, enter 'ruby bin/run'
 
 Follow the command line prompts for instructions on what to do next.
 
-The program will ask if you'd like to retrieve solutions to the Spelling Bee puzzle. If yes, you will be prompted to enter the daily puzzle's seven letters and then to enter the center letter. If not, you are given the option to exit the program--The daily Spelling Bee puzzle letters can be accessed at https://www.nytimes.com/puzzles/spelling-bee.
+The program will ask if you'd like to retrieve solutions to the Spelling Bee puzzle. If yes, enter the Spelling Bee's seven letters and then enter the center letter. Or you can exit the program. The daily Spelling Bee puzzle letters can be accessed at https://www.nytimes.com/puzzles/spelling-bee.
 
 Once the letters are entered, a list of valid words is returned in alphabetical order.
 
-Following the generated list of solutions, the program will ask if you'd like to look up word definitions. You can enter a word from the list to get that word's definition(s) until you opt to exit from the program.  
+Following the generated list of solutions, the program will ask if you'd like to look up word definitions. You can enter a word from the list to get that word's definition until you opt to exit from the program.  
 
 ## Development
 
